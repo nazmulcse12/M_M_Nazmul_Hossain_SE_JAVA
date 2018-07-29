@@ -1,6 +1,6 @@
 
 public class Product {
-	
+	private int productId;
 	private String name;
 	private String productType;
 	private String memory;
@@ -12,9 +12,10 @@ public class Product {
 	
 	// Constructor
 	public Product() {}
-
-	public Product(String name, String productType, String memory, int price, int originalCost, int quantity) {
+	
+	public Product(int productId, String name, String productType, String memory, int price, int originalCost, int quantity) {
 		super();
+		this.productId = productId;
 		this.name = name;
 		this.productType = productType;
 		this.memory = memory;
@@ -22,8 +23,16 @@ public class Product {
 		this.originalCost = originalCost;
 		this.quantity = quantity;
 	}
-	
-	// Getter & Setter
+
+	// Getters & Setters
+	public int getProductId() {
+		return productId;
+	}
+
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -75,8 +84,7 @@ public class Product {
 	// toString method
 	@Override
 	public String toString() {
-		return "Product [name=" + name + ", productType=" + productType + ", memory=" + memory + ", price=" + price
-				+ ", originalCost=" + originalCost + ", quantity=" + quantity + "]";
+		return "Product [productId=" + productId + ", name=" + name + ", productType=" + productType + ", memory="
+				+ memory + ", price=" + price + ", originalCost=" + originalCost + ", quantity=" + quantity + "]";
 	}
-	
 }
