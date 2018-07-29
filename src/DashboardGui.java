@@ -1,5 +1,8 @@
+import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -7,24 +10,43 @@ import javax.swing.JTextField;
 
 public class DashboardGui extends JFrame implements ActionListener{
 	JFrame dashFrame = new JFrame("Dashboard");
-	JLabel lbltopProduct , lbltotalSell;
-	JTextField item1, item2, item3, item4, item5;
+	JLabel lblTopProduct , lblTotalSell, lblTopProducts;
 	
-	DashboardGui() {
+	ProductDao pdao;
+	int totalsell=0;
+	ArrayList<String> topProducts;
+	String topProductsName="";
+	public DashboardGui() throws HeadlessException {
 		
-		lbltopProduct = new JLabel("Top Profitable Product");
-		lbltotalSell = new JLabel("Totlal Product Sold");
-		item1 = new JTextField();
-		item2 = new JTextField();
-		item3 = new JTextField();
-		item4 = new JTextField();
-		item5 = new JTextField();
+		try {
+			pdao = new ProductDao();
+			totalsell = pdao.getTotalSell();
+			topProducts = new ArrayList<>();
+			topProducts = pdao.getTopProducts();
+			for(String s : topProducts){
+				s+="  ";
+				topProductsName += s;
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		lblTotalSell = new JLabel("Totlal Product Sold= "+totalsell);
+		lblTopProduct = new JLabel("Top Profitable Product");
+		lblTopProducts = new JLabel();
 		
-		lbltopProduct.setBounds(50, 100, 50, 30);
-		//item1.setBounds(50, 100, 150, 50);
+		lblTotalSell.setBounds(50, 50, 200, 20);
+		lblTopProduct.setBounds(50, 100, 200, 20);
+		lblTopProducts.setBounds(50, 150, 200, 100);
 		
-		dashFrame.add(lbltopProduct);
-		dashFrame.setSize(600, 400);
+		dashFrame.add(lblTopProduct);
+		dashFrame.add(lblTotalSell);
+		dashFrame.add(lblTopProducts);
+		
+		lblTopProducts.setText(topProductsName);
+		
+		dashFrame.setLayout(null);
+		dashFrame.setSize(500, 300);
 		dashFrame.setVisible(true);
 	}
 	
@@ -34,6 +56,10 @@ public class DashboardGui extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+		try {
+			
+		} catch (Exception e2) {
+			// TODO: handle exception
+		}
 	}
 }
