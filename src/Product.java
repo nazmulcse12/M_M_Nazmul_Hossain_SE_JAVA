@@ -23,20 +23,6 @@ public class Product {
 		this.originalCost = originalCost;
 		this.quantity = quantity;
 	}
-	
-	public Product(int productId, String name, String productType, String memory, int price, int originalCost,
-			float profitPercentage, int quantity, String availability) {
-		super();
-		this.productId = productId;
-		this.name = name;
-		this.productType = productType;
-		this.memory = memory;
-		this.price = price;
-		this.originalCost = originalCost;
-		this.profitPercentage = profitPercentage;
-		this.quantity = quantity;
-		this.availability = availability;
-	}
 
 	// Getters & Setters
 	public int getProductId() {
@@ -95,36 +81,10 @@ public class Product {
 		this.quantity = quantity;
 	}
 	
-	public float getProfitPercentage() {
-		return profitPercentage;
-	}
-
-	public void setProfitPercentage(float profitPercentage) {
-		this.profitPercentage = profitPercentage;
-	}
-
-	public String getAvailability() {
-		return availability;
-	}
-
-	public void setAvailability(String availability) {
-		this.availability = availability;
-	}
-
-	
-	// Override toString method
-	
-	// @Override
-	/*public String toString() {
-		return "Product [productId=" + productId + ", name=" + name + ", productType=" + productType + ", memory="
-				+ memory + ", price=" + price + ", originalCost=" + originalCost + ", quantity=" + quantity + "]";
-	}*/
-	
+	// toString method
 	@Override
 	public String toString() {
 		return "Product [productId=" + productId + ", name=" + name + ", productType=" + productType + ", memory="
-				+ memory + ", price=" + price + ", originalCost=" + originalCost + ", profitPercentage="
-				+ profitPercentage + ", quantity=" + quantity + ", availability=" + availability + "]";
+				+ memory + ", price=" + price + ", originalCost=" + originalCost + ", quantity=" + quantity + "]";
 	}
-	
 }
