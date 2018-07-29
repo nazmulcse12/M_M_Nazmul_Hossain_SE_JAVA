@@ -124,24 +124,24 @@ public class ProductDao {
 		return totalSell;
 	}
 	
-	
-	public static void main(String[] args) throws SQLException {
+	//This main method is for testing ProductDao class
+	/*public static void main(String[] args) throws SQLException {
 		Product p = new Product(102, "Twinmos 8GB", "RAM", "8GB", 5600, 5000, 5);
-		//System.out.println(p);
+		System.out.println(p);
 		ProductDao pdao = new ProductDao();
-		//pdao.addProduct(p);
+		pdao.addProduct(p);
 		
-		/*for(Product pl : pdao.getAllProducts() ){
+		for(Product pl : pdao.getAllProducts() ){
 			System.out.println(pl);
-		}*/
+		}
 		
-		//pdao.deleteProduct(101);
-		//pdao.updateProduct(101, 3600);
+		pdao.deleteProduct(101);
+		pdao.updateProduct(101, 3600);
 		
 		System.out.println(pdao.getTopProducts());
 		
 		System.out.println(pdao.getTotalSell());
 		
-	}
+	}*/
 
 }

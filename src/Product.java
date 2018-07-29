@@ -114,12 +114,6 @@ public class Product {
 	
 	// Override toString method
 	
-	// @Override
-	/*public String toString() {
-		return "Product [productId=" + productId + ", name=" + name + ", productType=" + productType + ", memory="
-				+ memory + ", price=" + price + ", originalCost=" + originalCost + ", quantity=" + quantity + "]";
-	}*/
-	
 	@Override
 	public String toString() {
 		return "Product [productId=" + productId + ", name=" + name + ", productType=" + productType + ", memory="
