@@ -95,7 +95,36 @@ public class ProductDao {
 		return no;
 		
 	}
-
+	
+	/*** Top Profitable Products ***/
+	public ArrayList<String> getTopProducts() throws SQLException{
+		Connection con = getConnection();
+		Statement st = con.createStatement();
+		ResultSet rs = (ResultSet) st.executeQuery("SELECT * FROM PRODUCT ORDER BY PROFITPERCENTAGE DESC LIMIT 5");
+		ArrayList<String> name = new ArrayList<>();
+		
+		while(rs.next()){
+			String s = rs.getString(2);
+			name.add(s);
+		}
+		con.close();
+		return name;
+	}
+	
+	/*** Find Total Sell ***/
+	public int getTotalSell() throws SQLException{
+		Connection con = getConnection();
+		Statement st = con.createStatement();
+		ResultSet rs = (ResultSet) st.executeQuery("SELECT * FROM SELL");
+		int totalSell=0;
+		while(rs.next()){
+			totalSell+=rs.getInt(4);
+		}
+		con.close();
+		return totalSell;
+	}
+	
+	
 	public static void main(String[] args) throws SQLException {
 		Product p = new Product(102, "Twinmos 8GB", "RAM", "8GB", 5600, 5000, 5);
 		//System.out.println(p);
@@ -107,7 +136,11 @@ public class ProductDao {
 		}*/
 		
 		//pdao.deleteProduct(101);
-		pdao.updateProduct(101, 3600);
+		//pdao.updateProduct(101, 3600);
+		
+		System.out.println(pdao.getTopProducts());
+		
+		System.out.println(pdao.getTotalSell());
 		
 	}
 
